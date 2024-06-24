@@ -5,22 +5,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aula.sproject.repository.EntregableRepository;
-import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 @Service
-public class EntregableService{
-@Autowired
-EntregableRepository entregableRepository;
+public class EntregableService {
+    @Autowired
+    EntregableRepository entregableRepository;
 
-Page <Entregable> findAll(Integer pageNo, Integer pageSize ){
+    public Page<Entregable> findAll(Integer pageNo, Integer pageSize) {
 
- Pageable pageable = PageRequest.of(pageNo, pageSize);
- Page<Entregable> entregable = entregableRepository.findAll(pageable);
-
-}
-
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<Entregable> entregable = entregableRepository.findAll(pageable);
+        return entregable;
+    }
 
 }

@@ -1,6 +1,5 @@
 package com.aula.sproject.service;
 
-import com.aula.sproject.entity.Entregable;
 import com.aula.sproject.entity.EntregableGrupo;
 import com.aula.sproject.repository.EntregableGrupoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +11,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class EntregableGrupoService {
 
-@Autowired
-EntregableGrupoRepository entregablegrupoRepository;
+    @Autowired
+    EntregableGrupoRepository entregablegrupoRepository;
 
-Page <EntregableGrupo> findAll(Integer pageNo, Integer pageSize ){
+    public Page<EntregableGrupo> findAll(Integer pageNo, Integer pageSize) {
 
- Pageable pageable = PageRequest.of(pageNo, pageSize);
- Page<EntregableGrupo> entregablegrupo = entregablegrupoRepository.findAll(pageable);
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<EntregableGrupo> entregablegrupo = entregablegrupoRepository.findAll(pageable);
+        return entregablegrupo;
 
-}
+    }
 
-    
 }

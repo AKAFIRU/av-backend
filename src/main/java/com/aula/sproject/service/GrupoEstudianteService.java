@@ -12,14 +12,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class GrupoEstudianteService {
 
-@Autowired
-GrupoEstudianteRepository grupoestudianteRepository;
+    @Autowired
+    GrupoEstudianteRepository grupoestudianteRepository;
 
-Page <GrupoEstudiante> findAll(Integer pageNo, Integer pageSize ){
+    public Page<GrupoEstudiante> findAll(Integer pageNo, Integer pageSize) {
 
- Pageable pageable = PageRequest.of(pageNo, pageSize);
- Page<GrupoEstudiante> grupoestudiante = grupoestudianteRepository.findAll(pageable);
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<GrupoEstudiante> grupoestudiante = grupoestudianteRepository.findAll(pageable);
+        return grupoestudiante;
+    }
 
-}
-    
 }
