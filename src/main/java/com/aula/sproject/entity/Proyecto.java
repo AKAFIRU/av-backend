@@ -1,5 +1,7 @@
 package com.aula.sproject.entity;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -25,6 +27,12 @@ private Long id;
 
 @Column (name = "pro_nombre")
 private String proyectoNombre;
+
+@Column (name = "pro_fechaFinal")
+private Date fechaFinal;
+
+@Column (name = "pro_fechaCreacion")
+private Date fechaCreacion;
 
 
 }
