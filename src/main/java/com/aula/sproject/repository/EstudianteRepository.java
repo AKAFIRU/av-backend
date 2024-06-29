@@ -10,6 +10,6 @@ public interface EstudianteRepository extends PagingAndSortingRepository<Estudia
 
     public Estudiante findById (Long es_codigoEstudiante);
     
-    public Estudiante findByEstudianteNombre (String es_nombre);    
+    public Estudiante findByNombre (String es_nombre);    
 
 }

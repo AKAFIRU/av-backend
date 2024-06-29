@@ -9,6 +9,6 @@ public interface GrupoEstudianteRepository extends PagingAndSortingRepository<Gr
 
     public GrupoEstudiante findById (Long ge_idgrupoEstudiante);
     
-    public GrupoEstudiante findByGrupoEstudiante(String ge_nombregrupo);    
+    public GrupoEstudiante findByNombreGrupo(String ge_nombregrupo);    
 
 }

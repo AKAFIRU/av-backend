@@ -10,6 +10,6 @@ public interface EntregableRepository extends PagingAndSortingRepository<Entrega
 
     public Entregable findById (Long cod_entregable);
     
-    public Entregable findByEntregable(Long cod_proyecto);
+    public Entregable findByCodigoProyecto(Long cod_proyecto);
     
 }

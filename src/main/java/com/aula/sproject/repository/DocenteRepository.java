@@ -11,6 +11,6 @@ public interface DocenteRepository extends PagingAndSortingRepository<Docente,Lo
 
     public Docente findById (Long do_codigoDocente);
 
-    public Docente findByDocenteNombre(String do_nombre);
+    public Docente findByNombre(String do_nombre);
     
 }
