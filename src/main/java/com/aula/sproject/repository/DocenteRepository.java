@@ -9,5 +9,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DocenteRepository extends PagingAndSortingRepository<Docente,Long>{
 
+    public Docente findById (Long do_codigoDocente);
+
+    public Docente findByDocenteNombre(String do_nombre);
     
 }

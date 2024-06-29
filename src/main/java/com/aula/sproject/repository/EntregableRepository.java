@@ -8,5 +8,8 @@ import com.aula.sproject.entity.Entregable;
 @Repository
 public interface EntregableRepository extends PagingAndSortingRepository<Entregable,Long> {
 
+    public Entregable findById (Long cod_entregable);
+    
+    public Entregable findByEntregable(Long cod_proyecto);
     
 }
