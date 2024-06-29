@@ -23,6 +23,9 @@ public class SeccionService {
         return seccion;
     }
 
+    public Page<Seccion> findByDocenteId(Long docenteId, Pageable pageable) {
+        return seccionRepository.findByDocenteId(docenteId, pageable);
+    }
 
     
 }
