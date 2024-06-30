@@ -24,9 +24,8 @@ public class CursoController {
         HashMap<String, Object> result = new HashMap<>();
         result.put("success", true);
         result.put("message", "Lista de cursos");
-        result.put("data", cursoService.findAll(0,20));
+        result.put("data", cursoService.findAll(0, 20));
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-   
 }

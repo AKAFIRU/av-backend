@@ -8,12 +8,10 @@ import org.springframework.stereotype.Repository;
 import com.aula.sproject.entity.Entregable;
 
 @Repository
-public interface EntregableRepository extends PagingAndSortingRepository<Entregable,Long> {
+public interface EntregableRepository extends PagingAndSortingRepository<Entregable, Long> {
 
-    Entregable findById (Long cod_entregable);
-    
-    Entregable findByCodigoProyecto(Long cod_proyecto);
+    public Entregable findById(Long cod_entregable);
 
-    List<Entregable> findAll();
-    
+    public List<Entregable> findAll();
+
 }

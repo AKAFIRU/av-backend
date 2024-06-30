@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "grupo_estudiante")
 public class GrupoEstudiante {
     @Id
-    @Column(name = "ge_idgrupoEstudiante")
+    @Column(name = "ge_id")
     private Long id;
 
     @Column(name = "ge_nombregrupo")
@@ -26,13 +26,7 @@ public class GrupoEstudiante {
     @Column(name = "ge_numerointegrantes")
     private Integer numeroIntegrantes;
 
-    @Column(name = "ge_nombreproyecto")
-    private String nombreProyecto;
-
-    @Column(name = "ge_ciclo")
-    private Integer ciclo;
-
     @ManyToOne
-    @JoinColumn (name = "es_codigoEstudiante")
+    @JoinColumn(name = "cod_estudiante")
     private Estudiante estudiante;
 }

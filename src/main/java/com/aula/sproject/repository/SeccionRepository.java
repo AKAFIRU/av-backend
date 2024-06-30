@@ -12,20 +12,21 @@ import org.springframework.stereotype.Repository;
 import com.aula.sproject.entity.Seccion;
 
 @Repository
-public interface SeccionRepository extends PagingAndSortingRepository<Seccion, Long>{
+public interface SeccionRepository extends PagingAndSortingRepository<Seccion, Long> {
 
-    Seccion findById (Long cod_seccion);
-    
-    Seccion findBySecNombre(String secNombre);
+    public Seccion findById(Long cod_seccion);
 
-    List<Seccion> findAll();
+    public Seccion findBySecNombre(String secNombre);
 
-    public Page <Seccion> findByDocenteId(Long do_codigoDocente, Pageable pageable);
-    
-    public Page <Seccion> findByEstudianteId(Long id, Pageable pageable);
+    public List<Seccion> findAll();
 
-    @Query("SELECT s FROM Seccion s INNER JOIN s.curso c INNER JOIN c.seccionProyectos sp" +
-    "INNER JOIN sp.proyecto p " +
-    "INNER JOIN p.entregables e INNER JOIN e.entregableEstudiantes ee WHERE ee.estudiante.id = :estudianteId")
-    Page <Seccion> findSeccionesByEstudianteId(@Param("estudianteId") Long estudianteId);
+    public Page<Seccion> findByDocenteId(Long do_codigoDocente, Pageable pageable);
+
+    @Query("SELECT s FROM Seccion s " +
+           "JOIN s.proyectos p " +
+           "JOIN p.entregables e " +
+           "JOIN e.entregableEstudiantes ee " +
+           "WHERE ee.estudiante.id = :estudianteId")
+    public Page<Seccion> findSeccionesByEstudianteId(@Param("estudianteId") Long estudianteId, Pageable pageable);
 }
+

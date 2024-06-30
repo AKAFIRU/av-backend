@@ -1,8 +1,11 @@
 package com.aula.sproject.entity;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "estudiante")
 public class Estudiante {
     @Id
-    @Column(name = "es_codigoEstudiante")
+    @Column(name = "cod_estudiante")
     private Long id;
 
     @Column(name = "es_nombre")
@@ -29,4 +32,10 @@ public class Estudiante {
 
     @Column(name = "es_codigoInsti")
     private String codigoInsti;
+
+    @OneToMany(mappedBy = "estudiante")
+    private Set<EntregableEstudiante> entregableEstudiantes;
+
+    @OneToMany(mappedBy = "estudiante")
+    private Set<GrupoEstudiante> grupoEstudiantes;
 }

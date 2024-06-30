@@ -7,11 +7,11 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CursoRepository extends PagingAndSortingRepository<Curso,Long>{
+public interface CursoRepository extends PagingAndSortingRepository<Curso, Long> {
 
-    Curso findById (Long cur_codigoCurso);
-    
-    Curso findByCursoNombre(String cursoNombre);
+    public Curso findById(Long cur_codigoCurso);
 
-    List<Curso> findAll();
-} 
+    public Curso findByCursoNombre(String cursoNombre);
+
+    public List<Curso> findAll();
+}

@@ -5,10 +5,10 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProyectoRepository extends PagingAndSortingRepository<Proyecto,Long>{
+public interface ProyectoRepository extends PagingAndSortingRepository<Proyecto, Long> {
 
-    Proyecto findById (Long pro_idProyecto);
-    
-    Proyecto findByProyectoNombre(String pro_nombre);
-    
+    public Proyecto findById(Long pro_idProyecto);
+
+    public Proyecto findByProyectoNombre(String pro_nombre);
+
 }

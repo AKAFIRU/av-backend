@@ -25,7 +25,7 @@ public class DocenteController {
         HashMap<String, Object> result = new HashMap<>();
         result.put("success", true);
         result.put("message", "Lista de docentes");
-        result.put("data", docenteService.findAll(0,20));
+        result.put("data", docenteService.findAll(0, 20));
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 

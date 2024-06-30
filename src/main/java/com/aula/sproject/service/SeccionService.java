@@ -15,7 +15,7 @@ public class SeccionService {
     @Autowired
     SeccionRepository seccionRepository;
 
-     public Page<Seccion> findAll(Integer pageNo, Integer pageSize) {
+    public Page<Seccion> findAll(Integer pageNo, Integer pageSize) {
 
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         Page<Seccion> seccion = seccionRepository.findAll(pageable);
@@ -27,9 +27,8 @@ public class SeccionService {
         return seccionRepository.findByDocenteId(docenteId, pageable);
     }
 
-    public Page<Seccion> findSeccionesByEstudianteId(Long estudianteId) {
-        return seccionRepository.findSeccionesByEstudianteId(estudianteId);
+    public Page<Seccion> getSeccionesByEstudianteId(Long estudianteId, Pageable pageable) {
+        return seccionRepository.findSeccionesByEstudianteId(estudianteId, pageable);
     }
 
-    
 }

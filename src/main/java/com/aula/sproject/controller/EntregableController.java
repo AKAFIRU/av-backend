@@ -29,8 +29,8 @@ public class EntregableController {
         HashMap<String, Object> result = new HashMap<>();
         result.put("success", true);
         result.put("message", "Lista de entregables");
-        result.put("data", entregableService.findAll(0,20));
+        result.put("data", entregableService.findAll(0, 20));
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
-    
+
 }
