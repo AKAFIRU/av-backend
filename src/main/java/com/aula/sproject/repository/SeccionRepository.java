@@ -18,7 +18,9 @@ public interface SeccionRepository extends PagingAndSortingRepository<Seccion, L
 
     public List<Seccion> findAll();
 
-    Page <Seccion> findByDocenteId(Long do_codigoDocente, Pageable pageable);
+    public Page <Seccion> findByDocenteId(Long do_codigoDocente, Pageable pageable);
+    
+    public Page <Seccion> findByEstudianteId(Long id, Pageable pageable);
 
     
 
