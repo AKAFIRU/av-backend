@@ -20,7 +20,9 @@ public interface SeccionRepository extends PagingAndSortingRepository<Seccion, L
 
     List<Seccion> findAll();
 
-    Page <Seccion> findByDocenteId(Long do_codigoDocente, Pageable pageable);
+    public Page <Seccion> findByDocenteId(Long do_codigoDocente, Pageable pageable);
+    
+    public Page <Seccion> findByEstudianteId(Long id, Pageable pageable);
 
     @Query("SELECT s FROM Seccion s INNER JOIN s.curso c INNER JOIN c.seccionProyectos sp" +
     "INNER JOIN sp.proyecto p " +
