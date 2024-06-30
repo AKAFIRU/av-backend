@@ -12,4 +12,8 @@ public interface EstudianteRepository extends PagingAndSortingRepository<Estudia
 
     public Estudiante findByNombre(String es_nombre);
 
+     public void save(Estudiante estudiante);
+
+	public  void deleteById(long id);
+
 }

@@ -1,12 +1,13 @@
 package com.aula.sproject.service;
 
-import com.aula.sproject.entity.Estudiante;
-import com.aula.sproject.repository.EstudianteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import com.aula.sproject.entity.Estudiante;
+import com.aula.sproject.repository.EstudianteRepository;
 
 @Service
 public class EstudianteService {
@@ -20,4 +21,17 @@ public class EstudianteService {
         Page<Estudiante> estudiante = estudianteRepository.findAll(pageable);
         return estudiante;
     }
+
+public void deleteById(Long id) {
+        estudianteRepository.deleteById(id);
+    }
+
+    public Estudiante findById(Long id) {
+        return estudianteRepository.findById(id);
+    }
+
+    public void save(Estudiante estudiante) {
+        estudianteRepository.save(estudiante);
+}
+
 }

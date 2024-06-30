@@ -14,4 +14,8 @@ public interface EntregableRepository extends PagingAndSortingRepository<Entrega
 
     public List<Entregable> findAll();
 
+    public void save(Entregable entregable);
+
+	public  void deleteById(long id);
+
 }
