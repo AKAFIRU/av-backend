@@ -11,10 +11,7 @@ import com.aula.sproject.entity.EntregableEstudiante;
 @Repository
 public interface EntregableEstudianteRepository extends PagingAndSortingRepository<EntregableEstudiante, Long> {
 
-public EntregableEstudiante findById (Long codes_entregable);
-
-
-Page<EntregableEstudiante> findByCursoId(Long cur_codigoCurso, Pageable pageable);
+EntregableEstudiante findById (Long codes_entregable);
 
 Page<EntregableEstudiante> findByEstudianteId(Long es_codigoEstudiante, Pageable pageable);
 

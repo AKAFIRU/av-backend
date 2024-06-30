@@ -23,10 +23,6 @@ public class EntregableEstudianteService {
         return entregableestudiante;
     }
 
-     public Page<EntregableEstudiante> findByCursoId(Long cursoId, Pageable pageable) {
-        return entregableestudianteRepository.findByCursoId(cursoId, pageable);
-    }
-
     public Page<EntregableEstudiante> findByEstudianteId(Long estudianteId, Pageable pageable) {
         return entregableestudianteRepository.findByEstudianteId(estudianteId, pageable);
     }

@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CursoRepository extends PagingAndSortingRepository<Curso,Long>{
 
-    public Curso findById (Long cur_codigoCurso);
+    Curso findById (Long cur_codigoCurso);
     
-    public Curso findByCursoNombre(String cursoNombre);
+    Curso findByCursoNombre(String cursoNombre);
 
-    public List<Curso> findAll();
+    List<Curso> findAll();
 } 

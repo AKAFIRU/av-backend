@@ -27,5 +27,9 @@ public class SeccionService {
         return seccionRepository.findByDocenteId(docenteId, pageable);
     }
 
+    public Page<Seccion> findSeccionesByEstudianteId(Long estudianteId) {
+        return seccionRepository.findSeccionesByEstudianteId(estudianteId);
+    }
+
     
 }

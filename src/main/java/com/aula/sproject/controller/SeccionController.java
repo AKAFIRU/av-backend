@@ -42,6 +42,9 @@ public class SeccionController {
         return ResponseEntity.ok(secciones);
     }
 
-
+    @GetMapping("/estudiante/{estudianteId}")
+    public Page<Seccion> getSeccionesByEstudianteId(@PathVariable Long estudianteId) {
+        return seccionService.findSeccionesByEstudianteId(estudianteId);
+    }
     
 }

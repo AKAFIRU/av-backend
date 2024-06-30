@@ -10,10 +10,10 @@ import com.aula.sproject.entity.Entregable;
 @Repository
 public interface EntregableRepository extends PagingAndSortingRepository<Entregable,Long> {
 
-    public Entregable findById (Long cod_entregable);
+    Entregable findById (Long cod_entregable);
     
-    public Entregable findByCodigoProyecto(Long cod_proyecto);
+    Entregable findByCodigoProyecto(Long cod_proyecto);
 
-    public List<Entregable> findAll();
+    List<Entregable> findAll();
     
 }

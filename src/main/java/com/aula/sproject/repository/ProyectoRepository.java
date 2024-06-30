@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProyectoRepository extends PagingAndSortingRepository<Proyecto,Long>{
 
-    public Proyecto findById (Long pro_idProyecto);
+    Proyecto findById (Long pro_idProyecto);
     
-    public Proyecto findByProyectoNombre(String pro_nombre);
+    Proyecto findByProyectoNombre(String pro_nombre);
     
 }

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GrupoEstudianteRepository extends PagingAndSortingRepository<GrupoEstudiante,Long> {
 
-    public GrupoEstudiante findById (Long ge_idgrupoEstudiante);
+    GrupoEstudiante findById (Long ge_idgrupoEstudiante);
     
-    public GrupoEstudiante findByNombreGrupo(String ge_nombregrupo);    
+    GrupoEstudiante findByNombreGrupo(String ge_nombregrupo);    
 
 }

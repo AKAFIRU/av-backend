@@ -8,8 +8,8 @@ import com.aula.sproject.entity.Estudiante;
 @Repository
 public interface EstudianteRepository extends PagingAndSortingRepository<Estudiante, Long> {
 
-    public Estudiante findById (Long es_codigoEstudiante);
+    Estudiante findById (Long es_codigoEstudiante);
     
-    public Estudiante findByNombre (String es_nombre);    
+    Estudiante findByNombre (String es_nombre);    
 
 }
