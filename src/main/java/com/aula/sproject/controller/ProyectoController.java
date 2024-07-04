@@ -3,6 +3,9 @@ package com.aula.sproject.controller;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aula.sproject.entity.Proyecto;
@@ -46,9 +50,8 @@ public class ProyectoController {
 
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Proyecto proyecto) {
-        proyectoService.save(proyecto); 
+        proyectoService.save(proyecto);
 
-        
         HashMap<String, Object> result = new HashMap<>();
         result.put("success", true);
         result.put("message", "Proyecto registrado correctamente");
@@ -57,7 +60,7 @@ public class ProyectoController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-@PutMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable(value = "id") Long id, @RequestBody Proyecto proyecto) {
         HashMap<String, Object> result = new HashMap<>();
         Proyecto data = proyectoService.findById(id);
@@ -78,13 +81,12 @@ public class ProyectoController {
         }
     }
 
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         HashMap<String, Object> result = new HashMap<>();
-        
+
         Proyecto proyecto = proyectoService.findById(id);
-        
+
         if (proyecto == null) {
             result.put("success", false);
             result.put("message", "No existe proyecto con id: " + id);
@@ -97,6 +99,17 @@ public class ProyectoController {
         }
     }
 
+    @GetMapping("/por-seccion/{idSeccion}")
+    public ResponseEntity<?> buscarPorIdSeccion(@PathVariable Long idSeccion,
+            @RequestParam(name = "page", defaultValue = "0") int page,
+            @RequestParam(name = "size", defaultValue = "10") int size) {
 
+        Pageable pageable = PageRequest.of(page, size);
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("success", true);
+        result.put("message", "Lista de proyectos");
+        result.put("data", proyectoService.buscarPorIdSeccion(idSeccion,pageable));
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 
 }

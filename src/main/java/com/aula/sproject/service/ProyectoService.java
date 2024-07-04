@@ -22,7 +22,7 @@ public class ProyectoService {
         return proyecto;
     }
 
-     public void deleteById(Long id) {
+    public void deleteById(Long id) {
         proyectoRepository.deleteById(id);
     }
 
@@ -32,5 +32,11 @@ public class ProyectoService {
 
     public void save(Proyecto proyecto) {
         proyectoRepository.save(proyecto);
-}
+    }
+
+    
+    public Page<Proyecto> buscarPorIdSeccion(Long idSeccion , Pageable pageable) {
+        return proyectoRepository.findBySeccionId(idSeccion, pageable);
+    }
+
 }
