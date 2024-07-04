@@ -39,4 +39,8 @@ public class ProyectoService {
         return proyectoRepository.findBySeccionId(idSeccion, pageable);
     }
 
+    public Page<Proyecto> getProyectosByDocenteId(Long docenteId, Pageable pageable) {
+        return proyectoRepository.findProyectosByDocenteId(docenteId, pageable);
+    }
+
 }

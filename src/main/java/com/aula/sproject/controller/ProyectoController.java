@@ -111,4 +111,17 @@ public class ProyectoController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    @GetMapping("/por-docente/{idDocente}")
+    public ResponseEntity<?> buscarPorIdDocente(@PathVariable Long idDocente,
+            @RequestParam(name = "page", defaultValue = "0") int page,
+            @RequestParam(name = "size", defaultValue = "10") int size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("success", true);
+        result.put("message", "Lista de proyectos");
+        result.put("data", proyectoService.getProyectosByDocenteId(idDocente,pageable));
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
 }
