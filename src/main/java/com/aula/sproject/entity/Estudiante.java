@@ -4,7 +4,12 @@ import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -18,6 +23,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "estudiante")
 public class Estudiante {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_estudiante")
     private Long id;
 
@@ -36,6 +42,7 @@ public class Estudiante {
     @OneToMany(mappedBy = "estudiante")
     private Set<EntregableEstudiante> entregableEstudiantes;
 
-    @OneToMany(mappedBy = "estudiante")
+    @ManyToMany
+    @JoinTable(name = "estudiante_grupo", joinColumns = @JoinColumn(name = "cod_estudiante"), inverseJoinColumns = @JoinColumn(name = "ge_id"))
     private Set<GrupoEstudiante> grupoEstudiantes;
 }
