@@ -39,20 +39,21 @@ public class CursoController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Curso> findById(@PathVariable Long id) {
-        Curso curso = cursoService.findById(id);
-        return ResponseEntity.ok(curso);
+    public ResponseEntity<?> findById(@PathVariable Long id) {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("success", true);
+        result.put("message", "Lista de cursos");
+        result.put("data", cursoService.findById(id));
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Curso curso) {
-        cursoService.save(curso); // Guarda el curso utilizando el servicio
-
-        // Prepara la respuesta
+        cursoService.save(curso); 
         HashMap<String, Object> result = new HashMap<>();
         result.put("success", true);
         result.put("message", "Curso registrado correctamente");
-        result.put("data", curso); // Puedes devolver el curso guardado si lo deseas
+        result.put("data", curso); 
 
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
