@@ -39,17 +39,18 @@ public class SeccionController {
     }
 
    @GetMapping("/{id}")
-    public ResponseEntity<Page<Seccion>> findByDocenteId(@PathVariable Long id, Pageable pageable) {
+    public ResponseEntity<?> findByDocenteId(@PathVariable Long id, Pageable pageable) {
         Page<Seccion> secciones = seccionService.findByDocenteId(id, pageable);
         return ResponseEntity.ok(secciones);
     }
 
     @GetMapping("/estudiante/{estudianteId}")
-    public Page<Seccion> getSeccionesByEstudianteId(@PathVariable Long estudianteId,
-                                                    @RequestParam int page,
-                                                    @RequestParam int size) {
+    public ResponseEntity<?> getSeccionesByEstudianteId(@PathVariable Long estudianteId,
+                                                    @RequestParam(name = "page", defaultValue = "0")int page,
+                                                    @RequestParam(name = "size", defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);
-        return seccionService.getSeccionesByEstudianteId(estudianteId, pageable);
+        Page <Seccion> secciones = seccionService.getSeccionesByEstudianteId(estudianteId, pageable);
+        return ResponseEntity.ok(secciones);
     }
     
 }
