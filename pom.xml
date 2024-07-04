@@ -11,6 +11,7 @@
 	<groupId>com.aula</groupId>
 	<artifactId>sproject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>sproject</name>
 	<description>Demo de subida de archivos springboot</description>
 	<properties>
