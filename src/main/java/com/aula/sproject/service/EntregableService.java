@@ -31,5 +31,8 @@ public class EntregableService {
 
     public void save(Entregable entregable) {
         entregableRepository.save(entregable);
-}
+    }
+    public Page<Entregable> buscarEntregablesPorIdProyecto(Long idProyecto, Pageable pageable) {
+        return entregableRepository.findByProyectoId(idProyecto, pageable);
+    }
 }
