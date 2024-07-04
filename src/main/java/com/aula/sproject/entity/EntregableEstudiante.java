@@ -38,7 +38,7 @@ public class EntregableEstudiante {
     @Column(name = "codes_fecha", nullable = true)
     private Date fechaEntrega;
 
-    @Column(name = "en_tarea")
+    @Column(name = "en_tarea", nullable = true)
     private Byte tareaEntregable;
 
     @Column(name = "en_comentario", nullable = true)
