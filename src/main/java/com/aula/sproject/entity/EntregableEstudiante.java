@@ -39,7 +39,7 @@ public class EntregableEstudiante {
     private Date fechaEntrega;
 
     @Column(name = "en_tarea", nullable = true)
-    private Byte tareaEntregable;
+    private byte[] tareaEntregable;
 
     @Column(name = "en_comentario", nullable = true)
     private String comentario;

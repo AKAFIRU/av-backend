@@ -30,7 +30,7 @@ public class Curso {
 
 
     @Column(name = "cur_silabo", nullable = true)
-    private Byte cursoSilabo;
+    private byte[] cursoSilabo;
 
     @OneToMany(mappedBy = "curso")
     private Set<Seccion> seccions;
