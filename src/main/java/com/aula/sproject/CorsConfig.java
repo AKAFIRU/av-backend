@@ -16,7 +16,6 @@ public class CorsConfig {
                 registry.addMapping("/**")
                         .allowedOrigins("https://av-backend-90b745e0b89c.herokuapp.com")
                         .allowedOrigins("http://localhost:4200")
-                        .allowedOrigins("https://akafiru.github.io/av-fronted")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
