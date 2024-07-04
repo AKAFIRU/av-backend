@@ -3,10 +3,8 @@ package com.aula.sproject.entity;
 import java.util.Date;
 import java.util.Set;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -41,7 +39,7 @@ public class Proyecto {
     @Column(name = "pro_fecha_creacion")
     private Date fechaCreacion;
 
-    @OneToMany(mappedBy = "proyecto", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "proyecto")
     private Set<Entregable> entregables;
 
     @ManyToMany

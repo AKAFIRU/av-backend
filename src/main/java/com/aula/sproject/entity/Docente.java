@@ -2,10 +2,8 @@ package com.aula.sproject.entity;
 
 import java.util.Set;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -40,7 +38,7 @@ public class Docente {
     @Column(name = "do_codigo_insti")
     private String codigoInsti;
 
-    @OneToMany(mappedBy = "docente", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "docente")
     private Set<Seccion> seccions;
 
 }

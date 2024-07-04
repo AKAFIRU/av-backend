@@ -2,10 +2,8 @@ package com.aula.sproject.entity;
 
 import java.util.Set;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -35,9 +33,9 @@ public class Estudiante {
     @Column(name = "es_codigoInsti")
     private String codigoInsti;
 
-    @OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "estudiante")
     private Set<EntregableEstudiante> entregableEstudiantes;
 
-    @OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "estudiante")
     private Set<GrupoEstudiante> grupoEstudiantes;
 }
