@@ -23,7 +23,7 @@ public interface ProyectoRepository extends PagingAndSortingRepository<Proyecto,
     @Query("SELECT p FROM Proyecto p JOIN p.seccions s WHERE s.id = :seccionId")
     public Page<Proyecto> findBySeccionId(@Param("seccionId") Long seccionId, Pageable pageable);
 
-    @Query("SELECT p FROM Proyecto p JOIN p.seccions s JOIN s.docente d WHERE d.id = :docenteId")
+    @Query("SELECT DISTINCT p FROM Proyecto p JOIN p.seccions s WHERE s.docente.id = :docenteId")
     Page<Proyecto> findProyectosByDocenteId(@Param("docenteId") Long docenteId, Pageable pageable);
 
 }
