@@ -1,11 +1,14 @@
 package com.aula.sproject.controller;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,11 +44,20 @@ public class EntregableEstudianteController {
             entregableEstudiante.setTareaEntregable(file.getBytes());
             entregableEstudiante.setEntregable(entregableService.findById(entregableId));
             entregableEstudiante.setEstudiante(estudianteService.findById(estudianteId));
-
+            entregableEstudiante.setFechaEntrega(new Date());
             entregableEstudianteService.save(entregableEstudiante);
             return ResponseEntity.status(HttpStatus.OK).body("File uploaded successfully");
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("File upload failed");
         }
+    }
+
+    @GetMapping
+    public ResponseEntity<?> findAllDocentes() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("success", true);
+        result.put("message", "Lista de docentes");
+        result.put("data", entregableEstudianteService.findAll(0, 20));
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

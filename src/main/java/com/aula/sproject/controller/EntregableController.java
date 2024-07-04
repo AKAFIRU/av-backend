@@ -1,5 +1,6 @@
 package com.aula.sproject.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.aula.sproject.entity.Entregable;
 import com.aula.sproject.service.EntregableService;
+import com.aula.sproject.service.ProyectoService;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -30,6 +32,8 @@ public class EntregableController {
 
     @Autowired
     EntregableService entregableService;
+    @Autowired
+    ProyectoService proyectoService;
 
     @ApiOperation(value = "Lista de entregables")
     @GetMapping
@@ -49,7 +53,11 @@ public class EntregableController {
     }
 
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Entregable entregable) {
+    public ResponseEntity<?> save( @RequestParam("proyectoId") Long proyectoId, @RequestParam("fechaLimite") Date fechaLimite) {
+        Entregable entregable = new Entregable();
+        entregable.setFechaCre(new Date());
+        entregable.setFechaLimite(fechaLimite);
+        entregable.setProyecto(proyectoService.findById(proyectoId));
         entregableService.save(entregable);
 
         HashMap<String, Object> result = new HashMap<>();
