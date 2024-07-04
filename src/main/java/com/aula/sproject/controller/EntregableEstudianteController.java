@@ -15,6 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.aula.sproject.entity.EntregableEstudiante;
 import com.aula.sproject.serializable.EntregableEstudianteId;
 import com.aula.sproject.service.EntregableEstudianteService;
+import com.aula.sproject.service.EntregableService;
+import com.aula.sproject.service.EstudianteService;
 
 @Controller
 @RestController
@@ -23,6 +25,10 @@ public class EntregableEstudianteController {
 
     @Autowired
     private EntregableEstudianteService entregableEstudianteService;
+    @Autowired
+    private EstudianteService estudianteService;
+    @Autowired
+    private EntregableService entregableService;
 
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file,
@@ -33,6 +39,8 @@ public class EntregableEstudianteController {
             EntregableEstudiante entregableEstudiante = new EntregableEstudiante();
             entregableEstudiante.setId(id);
             entregableEstudiante.setTareaEntregable(file.getBytes());
+            entregableEstudiante.setEntregable(entregableService.findById(entregableId));
+            entregableEstudiante.setEstudiante(estudianteService.findById(estudianteId));
 
             entregableEstudianteService.save(entregableEstudiante);
             return ResponseEntity.status(HttpStatus.OK).body("File uploaded successfully");
